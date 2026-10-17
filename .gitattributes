@@ -1,0 +1,3 @@
+# Archive integrity: never rewrite line endings. Files must round-trip byte-identical,
+# so a checkout can be SHA-compared against the original artifact.
+* -text

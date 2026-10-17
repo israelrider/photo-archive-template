@@ -1,0 +1,12 @@
+# Curation scripts (this repo)
+numpy>=1.26
+opencv-python>=4.8
+pillow>=10.0
+
+# The face/CLIP engine. Clone images-agent beside this repo, then install it into THIS venv:
+#   python -m pip install -e ..\images-agent[faces]
+# It is needed by index_clip.py, match_crops.py, verify_cluster.py, exif_impact.py and by
+# the `images-agent faces` / `albums` commands that build the face database in the first place.
+
+# Optional: MiVOLO age estimation runs in its OWN venv (it pins a timm dev build that
+# conflicts with torch here). Point archive.toml at it: mivolo_python, mivolo_repo.

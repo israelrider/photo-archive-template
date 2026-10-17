@@ -1,0 +1,71 @@
+# Per-archive settings. Copy this file to archive.toml (which is git-ignored) and edit.
+# Everything person-specific lives here or in data\; the scripts hold none of it.
+# Paths may use ~ and %VAR% / $VAR.
+
+[archive]
+# Shown in the titles of review pages and the share index.
+name = "Family archive"
+# Album folder for faces the family looked at and could not name.
+no_name_folder = "Без имени"
+
+[paths]
+# The origins: every file exactly as received, one sub-folder per delivery
+# (e.g. "scans-2026-07", "phone-export", "cd-from-aunt"). Never edited by any script.
+archive = "~/Pictures/family-archive"
+
+# The album the family reads: one folder per person, each holding COPIES of origins.
+by_person = "~/Pictures/by-person"
+
+# Other album trees that hold copies of origins (optional). A copy in any of them
+# counts as "filed".
+other_albums = []
+
+# images-agent's database (CLIP vectors and the `face` table). Use one database per
+# archive, and set images-agent's IMAGE_INDEX_SQLITE to this same path before running
+# `images-agent index` / `images-agent faces`.
+face_db = "~/.cache/images-agent/my-archive.sqlite"
+
+# Checkout of images-agent (CLIP + InsightFace engine), imported by index_clip.py etc.
+images_agent = "~/localhost/python/images-agent"
+
+# Optional: MiVOLO age estimation, run as a subprocess (see scripts\_mivolo.py).
+# Leave empty to skip age prefixes.
+mivolo_python = ""
+mivolo_repo = ""
+
+# Optional: where build_share.py assembles the copy that is uploaded / shared.
+share = ""
+
+[origins]
+# Origin roots, relative to `archive`. Leave empty to treat every top-level folder of
+# `archive` as a root (folders ending in -quarantine and dot-folders are skipped).
+roots = []
+# One letter per root for album filenames (age27_<letter><subfolder>_<name>). Default: the
+# root's first letter. NEVER change a letter once files carry it.
+# tags = { "scans-2026-07" = "m", "phone-export" = "d" }
+# Roots whose files are born digital rather than scans (recorded as relation `born-digital`).
+born_digital = []
+# Folders outside `archive` that may also hold the origin of an album copy (relation `external`).
+external = []
+# Folders, relative to `archive`, holding uncut sheets that were split into several photographs.
+split_sheets = []
+
+[share]
+# build_share.py renames by-person\unknown-persons\ to this in the share.
+unknown_folder = "Неопознанные"
+
+[faces]
+# The InsightFace model images-agent was run with.
+model = "buffalo_l"
+
+[people]
+
+# The family sometimes answers a review with a description instead of a folder name.
+# Map that exact text to the folder name; the raw text is kept as the note.
+[people.aliases]
+# "Maya, Tom's friend, Inna's mother" = "Maya"
+
+# People whose copies go into a folder of their own choosing instead of
+# by-person\<name>\ -- e.g. the archive owner's personal album, listed in other_albums.
+[people.folders]
+# "Anna Ivanova" = "~/Pictures/Anna/Family scans"

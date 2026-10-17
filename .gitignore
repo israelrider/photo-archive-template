@@ -1,0 +1,50 @@
+# Never commit photographs. They live outside the repo (archive.toml: paths.archive / by_person).
+*.jpg
+*.jpeg
+*.JPG
+*.png
+*.tif
+*.tiff
+*.bmp
+*.heic
+*.raw
+*.nef
+*.cr2
+# annotation crops ARE records (see data/README.md) -- un-ignore them if this repo is private
+# !data/annotations/*.png
+
+# Review pages embed face crops as base64: they are photographs too.
+artifacts/reviews/*.html
+artifacts/checks/*
+
+# This archive's own settings and records. Commit them ONLY in a private repository:
+# they name the family's people. A template checkout carries none of them.
+archive.toml
+data/*.csv
+data/*.txt
+data/notes/
+data/annotations/
+
+# Databases are regenerable and large; they live in ~\.cache\images-agent\
+*.sqlite
+*.sqlite.bak-*
+*.db
+
+# Local scratch cache
+.cache/
+
+# Python
+.venv/
+**/__pycache__/
+*.egg-info/
+*.pyc
+
+# Editors / OS
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini
+.env
+
+# Timestamped log backups
+*.csv.bak-*
