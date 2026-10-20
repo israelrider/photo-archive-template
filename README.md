@@ -6,7 +6,7 @@ into **an album per person**, with every decision recorded and every deletion re
 It holds no photographs and no names. Each archive gets its own copy of this repository,
 its own `archive.toml`, and its own `data\` ledgers.
 
-Built on [`images-agent`](../images-agent), which detects and clusters faces (InsightFace
+Built on [`images-agent`](https://github.com/israelrider/images-agent), which detects and clusters faces (InsightFace
 `buffalo_l`) and builds the CLIP index. This repository is the curation layer on top: it
 asks the family who people are, records the answers, files copies, and removes duplicates.
 
